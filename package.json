@@ -1,0 +1,24 @@
+{
+  "name": "lofter2hexo",
+  "version": "1.0.0",
+  "description": "将 LOFTER 导出的 XML 文件转换为 Markdown 文件工具",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "soratanmer",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^5.1.0",
+    "image-downloader": "^4.0.1",
+    "to-markdown": "^3.1.1",
+    "xml2js": "^0.4.23"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soratanmer/LOFTER2HEXO.git"
+  },
+  "bugs": {
+    "url": "https://github.com/soratanmer/LOFTER2HEXO/issues"
+  }
+}
