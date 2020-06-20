@@ -3,7 +3,7 @@
  * @Github       : https://github.com/soratanmer
  * @Date         : 2020-06-14 21:10:34
  * @LastEditors  : soratanmer
- * @LastEditTime : 2020-06-14 21:28:57
+ * @LastEditTime : 2020-06-20 15:17:55
  * @FilePath     : \LOFTER2HEXO\index.js
  * @Description  : 将 LOFTER 导出的 XML 文件转换为 Markdown 文件
  */
@@ -113,17 +113,15 @@ class Lofter2md {
   }
   parseContent(article) {
     let content = ''
-    let contents = ''
     let imgArray = []
     if (article.content) {
-      contents = toMarkdown(article.content.toString())
-      content = contents.replace(/!\[.*?\]\((.*?)\)/g, '')
-      imgArray = contents.match(/!\[.*?\]\((.*?)\)/g)
+      content = toMarkdown(article.content.toString())
+      imgArray = content.match(/!\[.*?\]\((.*?)\)/g)
       if (imgArray && imgArray.length) {
         imgArray.forEach((imgURL) => {
           imgURL = imgURL.match(/http.*\.(jpg|jpeg|gif|png)/)[0]
           const imgName = imgURL.split('/').pop()
-          content += `\n![图片](./img/${imgName})\n`
+          content = content.replace(/!\[(.*?)\]\((http.*?)\)/, `![图片](./img/${imgName})`)
           this.downloadImg(imgURL)
         })
       }
